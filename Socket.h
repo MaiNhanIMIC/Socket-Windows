@@ -14,3 +14,9 @@ char* message;
 void Socket_Init(char* ip_server, u_short port);
 int Socket_Send(char* data, uint16_t size);
 int Socket_Recv(char* src, uint16_t size);
+
+//#include <stdio.h> 
+//#include <sys/socket.h> 
+//#include <arpa/inet.h> 
+//#include <unistd.h> 
+//#include <string.h> 

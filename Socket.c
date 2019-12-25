@@ -1,8 +1,12 @@
 #include "Socket.h"
 #include "stdio.h"
 
+
+
 void Socket_Init(char* ip_server, u_short port)
 {
+	
+	struct timeval timeout;
 	printf(" \nInitialising Winsock... ");
 	if (WSAStartup(MAKEWORD(2, 2), &wsa) != 0)
 	{
@@ -19,7 +23,16 @@ void Socket_Init(char* ip_server, u_short port)
 	}
 
 	printf(" Socket created.\n ");
+	/*timeout.tv_sec = 100;
+	timeout.tv_usec = 0;
 
+	if (setsockopt(s, SOL_SOCKET, SO_RCVTIMEO, (char*)&timeout,
+		sizeof(timeout)) < 0)
+		printf("setsockopt failed\n");
+
+	if (setsockopt(s, SOL_SOCKET, SO_SNDTIMEO, (char*)&timeout,
+		sizeof(timeout)) < 0)
+		printf("setsockopt failed\n");*/
 
 	server.sin_addr.s_addr = inet_addr(ip_server);
 
@@ -32,7 +45,7 @@ void Socket_Init(char* ip_server, u_short port)
 		puts("connect error");
 		return 1;
 	}
-
+	
 	puts("Connected");
 }
 
@@ -44,4 +57,10 @@ int Socket_Send(char* data, uint16_t size)
 int Socket_Recv(char *src, uint16_t size)
 {
 	return recv(s, src, size, 0);
+}
+
+void task1()
+{
+	printf("hello\r\n");
+	
 }

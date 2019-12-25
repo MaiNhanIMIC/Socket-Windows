@@ -1,12 +1,6 @@
-﻿  Socket.c
-C:\Users\maitr\source\repos\SoundTCP-Windows\SoundTCP-Windows\Socket.h(3,9): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
-C:\Users\maitr\source\repos\SoundTCP-Windows\SoundTCP-Windows\Socket.h(5,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
-C:\Users\maitr\source\repos\SoundTCP-Windows\SoundTCP-Windows\Socket.c(10,11): warning C4098:  'Socket_Init': 'void' function returning a value
-  main.c
-C:\Users\maitr\source\repos\SoundTCP-Windows\SoundTCP-Windows\Socket.c(33,11): warning C4098:  'Socket_Init': 'void' function returning a value
-C:\Users\maitr\source\repos\SoundTCP-Windows\SoundTCP-Windows\main.c(2,9): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
-C:\Users\maitr\source\repos\SoundTCP-Windows\SoundTCP-Windows\Socket.h(3,9): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
-C:\Users\maitr\source\repos\SoundTCP-Windows\SoundTCP-Windows\Socket.h(5,10): warning C4067:  unexpected tokens following preprocessor directive - expected a newline
-  Generating Code...
-C:\Users\maitr\source\repos\SoundTCP-Windows\SoundTCP-Windows\main.c(14,42): warning C4267:  'function': conversion from 'size_t' to 'uint16_t', possible loss of data
-  SoundTCP-Windows.vcxproj -> C:\Users\maitr\source\repos\SoundTCP-Windows\Debug\SoundTCP-Windows.exe
+﻿  main.c
+C:\Users\Mai Nhan\OneDrive\Documents\01. CC++ Course\Sample-Project\Socket-Windows\main.c(3,9): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Mai Nhan\OneDrive\Documents\01. CC++ Course\Sample-Project\Socket-Windows\Socket.h(3,9): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Mai Nhan\OneDrive\Documents\01. CC++ Course\Sample-Project\Socket-Windows\Socket.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Mai Nhan\OneDrive\Documents\01. CC++ Course\Sample-Project\Socket-Windows\main.c(25,32): warning C4267: 'function': conversion from 'size_t' to 'uint16_t', possible loss of data
+  SoundTCP-Windows.vcxproj -> C:\Users\Mai Nhan\OneDrive\Documents\01. CC++ Course\Sample-Project\Socket-Windows\Debug\SoundTCP-Windows.exe
