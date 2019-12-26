@@ -1,12 +1,8 @@
 #include "Socket.h"
 #include "stdio.h"
 
-
-
 void Socket_Init(char* ip_server, u_short port)
 {
-	
-	struct timeval timeout;
 	printf(" \nInitialising Winsock... ");
 	if (WSAStartup(MAKEWORD(2, 2), &wsa) != 0)
 	{
@@ -23,16 +19,6 @@ void Socket_Init(char* ip_server, u_short port)
 	}
 
 	printf(" Socket created.\n ");
-	/*timeout.tv_sec = 100;
-	timeout.tv_usec = 0;
-
-	if (setsockopt(s, SOL_SOCKET, SO_RCVTIMEO, (char*)&timeout,
-		sizeof(timeout)) < 0)
-		printf("setsockopt failed\n");
-
-	if (setsockopt(s, SOL_SOCKET, SO_SNDTIMEO, (char*)&timeout,
-		sizeof(timeout)) < 0)
-		printf("setsockopt failed\n");*/
 
 	server.sin_addr.s_addr = inet_addr(ip_server);
 
@@ -47,6 +33,46 @@ void Socket_Init(char* ip_server, u_short port)
 	}
 	
 	puts("Connected");
+}
+
+void Socket_Server_Init(u_short port)
+{
+	printf(" \nInitialising Winsock... ");
+	if (WSAStartup(MAKEWORD(2, 2), &wsa) != 0)
+	{
+		printf(" Failed.Error Code : % d ", WSAGetLastError());
+		return 1;
+	}
+
+	printf(" Initialised.\n ");
+
+	//Create a socket
+	if ((s = socket(AF_INET, SOCK_STREAM, 0)) == INVALID_SOCKET)
+	{
+		printf("Could not create socket : % d", WSAGetLastError());
+	}
+
+	printf(" Socket created.\n ");
+
+	server.sin_addr.s_addr = htonl(INADDR_ANY);
+	server.sin_family = AF_INET;
+	server.sin_port = htons(port);
+
+	bind(s, (struct sockaddr*) & server, sizeof(struct sockaddr));
+
+	listen(s, 5);
+
+	struct sockaddr_in dest;
+	socklen_t socksize = sizeof(struct sockaddr_in);
+	int consocket = accept(s, (struct sockaddr*) & dest, &socksize);
+	char* msg = "Hello World !\n";
+	while (consocket)
+	{
+		printf("Incoming connection from %s - sending welcome\n", inet_ntoa(dest.sin_addr));
+		send(consocket, msg, strlen(msg), 0);
+		close(consocket);
+		consocket = accept(s, (struct sockaddr*) & dest, &socksize);
+	}
 }
 
 int Socket_Send(char* data, uint16_t size)

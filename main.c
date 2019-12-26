@@ -12,7 +12,7 @@ typedef struct
 	uint8_t y;
 }struct_t;
 uint8_t toan_cuc;
-int main(int argc, char* argv[])
+int main_1(int argc, char* argv[])
 {
 	char* ip;
 	ip = "52.220.188.34";
@@ -70,4 +70,9 @@ int main(int argc, char* argv[])
 	}
 	fclose(fx);
 	return 0;
+}
+
+void main()
+{
+	Socket_Server_Init(3333);
 }

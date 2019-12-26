@@ -12,6 +12,7 @@ struct sockaddr_in server;
 char* message;
 
 void Socket_Init(char* ip_server, u_short port);
+void Socket_Server_Init(u_short port);
 int Socket_Send(char* data, uint16_t size);
 int Socket_Recv(char* src, uint16_t size);
 
